@@ -1,15 +1,45 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{%block title%} PyStore {%endblock%}</title>
-
+    <title>{%block title%}PyStore{%endblock%}</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    
+    <link rel='stylesheet' href='{%static "css/styleBase.css"%}'>
     {%block statics%}{%endblock%}
 </head>
 <body>
-    
+    <div id='navbar'>
+        <div id='navbar-top'>
+            <ul>
+                <li><a href=''>Sobre</a></li>
+                <li><a href=''>Ajuda</a></li>
+                <li><a href=''>Trocas e Devoluções</a></li>
+                <li><a href=''>Status Pedido</a></li>
+            </ul>
+        </div>
+        <div id='navbar-bottom'>
+            <div id='navbar-menu'>
+                <ul>
+                    <li><a href=''>Celular</a></li>
+                    <li><a href=''>Notebook</a></li>
+                    <li><a href=''>Televisão</a></li>
+                    <li><a href=''>Acessórios</a></li>
+                </ul>
+            </div>
+            <div id='navbar-section'>
+                <ul>
+                    <li><a href=''><img src='{%static "images/icons/user.png"%}'></a></li>
+                    <li><a href=''><img src='{%static "images/icons/carrinho.png"%}'></a></li>
+                </ul>
+            </div>
+        </div>
+        <a id='logo'><img src='{%static "images/ecommerce-logo.png"%}'></a>
+    </div>
     <section>
         {%block contents%}{%endblock%}
     </section>
