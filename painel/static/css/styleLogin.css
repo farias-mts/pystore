@@ -131,3 +131,14 @@ form button:hover{
     height:20px;
 }
 
+@keyframes teste{
+    60%{
+        opacity:1;
+    }
+    99%{
+        opacity:0;
+    }
+    100%{
+        visibility:hidden;
+    }
+}
