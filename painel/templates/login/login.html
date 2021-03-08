@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pyStore | Login Painel</title>
     <link rel='stylesheet' href='{%static "css/styleLogin.css"%}'>
+    <script src='{%static "js/error.js"%}'></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet">  
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -24,10 +25,16 @@
                     <span>Usuário</span>
                     <div>
                         <input type='text' name='username' placeholder='digite seu usuário'>
-                    </div>
+                        {%if error == True%}
+                            <img class='error-login' src='{%static "images/icons/cancel.png"%}'>
+                        {%endif%}
+                        </div>
                     <span>Senha</span>
                     <div>
                         <input type='password' name='password' placeholder='digite sua senha'>
+                        {%if error == True%}
+                            <img class='error-login' src='{%static "images/icons/cancel.png"%}' onload='callFunction()'>
+                        {%endif%}
                     </div>
                     <button type='submit'>Entrar</button>
                 </form>
