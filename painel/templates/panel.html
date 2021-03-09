@@ -1,0 +1,54 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}pyStore{%endblock%}</title>
+    <link rel='stylesheet' href='{%static "css/navbar.css"%}'>
+    {%block static%}
+        <style type='text/css'>
+            @-webkit-keyframes move-left{
+                0%{
+                    transform:translateX(-100%);
+                }
+                100%{
+                    transform:translateX(0);
+                }
+            }
+            #navbar{
+                animation-name:move-left;
+                animation-duration:4s;
+            }
+        </style>
+    {%endblock%}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class='flex-contents'>
+        <div id='navbar'>
+            <a href='/painel/logout/' class='image-exit'><img class='image-exit' src='{%static "images/icons/sair.png"%}'></a>
+            <div id='navbar-title'>
+                <span>Olá</span>
+                <p>{{request.user.first_name}} {{request.user.last_name}}</p>
+            </div>
+            <div id='navbar-contents'>
+                <ul>
+                    <li><a href='/painel/products'>Produto</a></li>
+                    <li><a href='/painel/'>Categoria</a></li>
+                    <li><a href='/painel/'>Fabricante</a></li>
+                    <li><a href='/painel/'>Usuários</a></li>
+                    <li><a href='/painel/'>Clientes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id='variable-contents'>
+            {%block contents%}{%endblock%}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,5 +1,13 @@
-{%extends 'base_painel.html'%}
+{%extends 'panel.html'%}
 {%load static%}
 
 {%block title%}pyStore | Novo Produto{%endblock%}
+
+{%block static%}{%endblock%}
+
+{%block contents%}
+    <form method='POST' action=''>
+        {{formProduct}}
+    </form>
+{%endblock%}
 

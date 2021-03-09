@@ -1,0 +1,118 @@
+*, body{
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+.flex-contents{
+    display:flex;
+}
+
+.image-exit{
+    width:30px;
+    height:30px;
+    position:relative;
+    top:1%;
+    left:2%;
+    transform:translate(-2%, -1%);
+}
+
+
+#navbar{
+    width:18%;
+    background-color:#333;
+    color:#fff;
+}
+
+#navbar-title{
+    position:relative;
+    width:-moz-max-content;
+    width:-webkit-max-content;
+    height:-moz-max-content;
+    height:-webkit-max-content;
+    top:5%;
+    left:50%;
+    transform:translate(-50%, -5%);
+    justify-content:center;
+    text-align:center;
+    align-items:center;
+}
+
+#navbar-title span{
+    word-spacing:1.5px;
+    font-family:'Patua One', cursive;
+    font-size:64px;
+    width:-moz-max-content;
+    width:-webkit-max-content;
+    height:-moz-max-content;
+    height:-webkit-max-content;
+}
+
+#navbar-title p{
+    width:110%;
+    height:-moz-max-content;
+    height:-webkit-max-content;
+    position:relative;
+    left:50%;
+    top:0;
+    transform:translate(-50%, 0);
+    font-family:'Source Sans Pro', sans-serif;
+    font-size:auto;
+    font-weight:bold;
+    letter-spacing:5px;
+    color:#FF5733;
+}
+
+#navbar-contents{
+    position:relative;
+    width:-moz-max-content;
+    width:-webkit-max-content;
+    height:-moz-max-content;
+    height:-webkit-max-content;
+    top:15%;
+    left:50%;
+    transform:translate(-50%, -15%);
+}
+
+#navbar-contents ul{
+    list-style-type:none;
+}
+
+#navbar-contents li{
+    width:-moz-max-content;
+    width:-webkit-max-content;
+    height:-moz-max-content;
+    height:-webkit-max-content;
+    margin-top:25%;
+    align-items:center;
+    position:relative;
+    left:50%;
+    top:0;
+    transform:translate(-50%, 0);
+}
+
+#navbar-contents a{
+    font-family:'Archivo Black', sans-serif;
+    font-size:22px;
+    color:#fff;
+}
+
+#navbar-contents a:link{
+    text-decoration:none;
+}
+
+#navbar-contents a:visit{
+    text-decoration:none;
+}
+
+#navbar-contents a:hover{
+    color:#FF5733;
+}
+
+#variable-contents{
+    background-color: #fff;
+    width:100%;
+    height: 100%;
+}
+
+

@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as loginProcess, logout as logoutProcess
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_protect    
+from django.views.decorators.csrf import csrf_protect  
+
+from . import forms
 
 # Create your views here.
 
@@ -27,8 +29,16 @@ def login(request):
 
 @login_required(login_url='login/')
 def index(request):
-    return render(request, 'login/products.html')
+    return render(request, 'panel.html')
 
 def logout(request):
     logoutProcess(request)
     return redirect('/painel/login')
+
+@login_required(login_url='login/')
+def newProduct(request):
+    formProduct = forms.formProduct()
+    context = {
+        'formProduct':formProduct,
+    }
+    return render(request, 'login/products.html', context)
