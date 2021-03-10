@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect  
 
 from . import forms
+from . import models
 
 # Create your views here.
 
@@ -35,10 +36,38 @@ def logout(request):
     logoutProcess(request)
     return redirect('/painel/login')
 
+@csrf_protect
 @login_required(login_url='login/')
 def newProduct(request):
     formProduct = forms.formProduct()
+    if request.method=='POST':
+            print(request.POST['name'])
+            primary_image = request.POST['primary_image']
+            second_image = request.POST['second_image']
+            third_image = request.POST['third_image']
+            name = request.POST['name']
+            description = request.POST['description']
+            category = models.Category.objects.get(id=request.POST['category'])
+            brand = models.Brand.objects.get(id=request.POST['brand'])
+            price = request.POST['price']
+            amount = request.POST['amount']
+            new_product = models.Product(
+                name=name,
+                description=description,
+                category=category,
+                brand=brand,
+                price=price,
+                amount=amount,
+                primary_image=primary_image,
+                second_image=second_image,
+                third_image=third_image
+            )
+            new_product.save()
+            print('Produto criado')
     context = {
         'formProduct':formProduct,
     }
     return render(request, 'login/products.html', context)
+
+def teste(request):
+    return render(request, 'teste.html')

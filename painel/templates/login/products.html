@@ -3,11 +3,83 @@
 
 {%block title%}pyStore | Novo Produto{%endblock%}
 
-{%block static%}{%endblock%}
+{%block static%}
+    <link rel='stylesheet' href='{%static "css/styleProducts.css"%}'>
+    <script src='{%static "js/showImage.js"%}'></script>
+    <script src='{%static "js/radio.js"%}'></script>
+{%endblock%}
 
-{%block contents%}
-    <form method='POST' action=''>
-        {{formProduct}}
-    </form>
+
+{%block variable-title%}Novo Produto{%endblock%}
+
+{%block variable-contents%}
+    <div id='form-product'>
+        <form method='POST' action=''>{%csrf_token%}
+            <div id='forms'>
+                <div id='view-slide'>
+                    <div id='slide'>
+                        <input id='radio1' type='radio' name='radio-btn' onclick='checkedRadio("1")'>
+                        <input id='radio2' type='radio' name='radio-btn' onclick='checkedRadio("2")'>
+                        <input id='radio3' type='radio' name='radio-btn' onclick='checkedRadio("3")'>
+                        <div class='slide-photo first'>
+                            <img id='preview-first' class='preview-photo'>
+                            <label for='id_first_image'>
+                                <img src='{%static "images/icons/galeria.png"%}' class='select-image'>
+                            </label>
+                            <input id='id_first_image' type='file' name='primary_image' accept='image/*' required='' onchange='previewImage("first")'>
+                        </div>
+                        <div class='slide-photo'>
+                            <img id='preview-second' class='preview-photo'>
+                            <label for='id_second_image'>
+                                <img src='{%static "images/icons/galeria.png"%}' class='select-image'>
+                            </label>
+                            <input id='id_second_image' type='file' name='second_image' accept='image/*' onchange='previewImage("second")'>
+                        </div>
+                        <div class='slide-photo'>
+                            <img id='preview-third' class='preview-photo'>
+                            <label for='id_third_image'>
+                                <img src='{%static "images/icons/galeria.png"%}' class='select-image'>
+                            </label>
+                            <input id='id_third_image' type='file' name='third_image' accept='image/*' onchange='previewImage("third")'>
+                        </div>
+                    </div>
+                    <div class='navigation'>
+                        <label id='btn1' class='manual-btn' for='radio1'></label>
+                        <label id='btn2' class='manual-btn' for='radio2'></label>
+                        <label id='btn3' class='manual-btn' for='radio3'></label>
+                    </div>
+                </div>
+                <div id='view-input'>
+                    <div>
+                        <label for='id_name'>Nome</label>
+                        <input type='text' id='id_name' name='name' class='change-input' required=''>
+                    </div>
+                    <div>
+                        <label for='id_description'>Descrição</label>
+                        <textarea type='text' id='id_description' name='description' class='change-input' rows='4' cols='50'></textarea>
+                    </div>
+                    <div>
+                        <label for='id_category'>Categoria</label>
+                        <!--<input type='text' id='id-category' name='category' class='change-input'>-->
+                        {{formProduct.category}}
+                    </div>
+                    <div>
+                        <label for='id_brand'>Fabricante</label>
+                        <!--<input type='text' id='id-brand' name='brand' class='change-input'>-->
+                        {{formProduct.brand}}
+                    </div>
+                    <div>
+                        <label for='id_price'>Preço</label>
+                        <input type='number' min='0' id='id_price' name='price' class='change-input' required=''>
+                    </div>
+                    <div>
+                        <label for='id_amount'>Quantidade</label>
+                        <input type='number' id='id_amount' name='amount' class='change-input' required=''>
+                    </div>
+                </div>
+            </div>
+            <button type='submit'>Cadastrar</button>
+        </form>
+    </div>
 {%endblock%}
 

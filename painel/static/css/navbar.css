@@ -1,12 +1,19 @@
 *, body{
     margin:0;
     padding:0;
+    box-sizing:border-box;
+}
+
+html{
     height:100%;
 }
 
-.flex-contents{
+body{
     display:flex;
+    height:100%;
+    width:100%;
 }
+
 
 .image-exit{
     width:30px;
@@ -22,53 +29,51 @@
     width:18%;
     background-color:#333;
     color:#fff;
+    height:100%;
 }
 
 #navbar-title{
     position:relative;
-    width:-moz-max-content;
-    width:-webkit-max-content;
-    height:-moz-max-content;
-    height:-webkit-max-content;
+    width:70%;
+    height:16%;
     top:5%;
     left:50%;
     transform:translate(-50%, -5%);
-    justify-content:center;
-    text-align:center;
-    align-items:center;
 }
 
-#navbar-title span{
+#hello{
+    width:100%;
+    height:60%;
+    text-align:center;
+}
+
+#hello p{
+    display:inline;
     word-spacing:1.5px;
     font-family:'Patua One', cursive;
-    font-size:64px;
-    width:-moz-max-content;
-    width:-webkit-max-content;
-    height:-moz-max-content;
-    height:-webkit-max-content;
+    font-size:8vh;
 }
 
-#navbar-title p{
-    width:110%;
-    height:-moz-max-content;
-    height:-webkit-max-content;
-    position:relative;
-    left:50%;
-    top:0;
-    transform:translate(-50%, 0);
+#name-user{
+    width:100%;
+    height:25%;
+    justify-content:center;
+    text-align:center;
+}
+
+#name-user p{
     font-family:'Source Sans Pro', sans-serif;
-    font-size:auto;
+    font-size:2.3vh;
     font-weight:bold;
-    letter-spacing:5px;
+    letter-spacing:0.4vh;
     color:#FF5733;
 }
 
 #navbar-contents{
     position:relative;
-    width:-moz-max-content;
-    width:-webkit-max-content;
-    height:-moz-max-content;
+    width:70%;
     height:-webkit-max-content;
+    height:-moz-max-content;
     top:15%;
     left:50%;
     transform:translate(-50%, -15%);
@@ -83,7 +88,7 @@
     width:-webkit-max-content;
     height:-moz-max-content;
     height:-webkit-max-content;
-    margin-top:25%;
+    margin-top:15%;
     align-items:center;
     position:relative;
     left:50%;
@@ -93,7 +98,7 @@
 
 #navbar-contents a{
     font-family:'Archivo Black', sans-serif;
-    font-size:22px;
+    font-size:1.2vw;
     color:#fff;
 }
 
@@ -112,7 +117,24 @@
 #variable-contents{
     background-color: #fff;
     width:100%;
-    height: 100%;
 }
 
+#page-title{
+    width:100%;
+    height:-moz-max-content;
+    height:-webkit-max-content;
+    text-align:center;
+    margin-top:1%;
+}
 
+#page-title{
+    font-family:'Archivo Black', sans-serif;
+    font-size:32px;
+    color:#FF5733;
+}
+
+#page-contents{
+    margin-top:1%;
+    position:relative;
+    height:80%;
+}

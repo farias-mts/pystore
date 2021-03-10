@@ -107,6 +107,7 @@ form button{
     font-family:'Merriweather Sans', sans-serif;
     border-radius: 8%;
     background-color:#333;
+    cursor:pointer;    
 }
 
 form button:hover{
@@ -129,16 +130,4 @@ form button:hover{
 .error-login{
     width:20px;
     height:20px;
-}
-
-@keyframes teste{
-    60%{
-        opacity:1;
-    }
-    99%{
-        opacity:0;
-    }
-    100%{
-        visibility:hidden;
-    }
 }
