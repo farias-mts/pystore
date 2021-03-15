@@ -1,0 +1,40 @@
+{%extends 'panel.html'%}
+
+{%load static%}
+
+{%block title%}Usuários | pyStore{%endblock%}
+
+{%block static%}
+    <link rel='stylesheet' href='{%static "css/styleForms.css"%}'>
+{%endblock%}
+
+
+{%block variable-title%}Novo Usuário{%endblock%}
+
+{%block variable-contents%}
+    <div class='card-category'>
+        <form method='POST' action=''>{%csrf_token%}
+            <div>
+                <label for='id-first_name' class='id-label'>Nome</label>
+                <input type='text' name='first_name' id='id-first_name' class='class-input' required=''>
+            </div>
+            <div>
+                <label for='id-second_name' class='id-label'>Sobrenome</label>
+                <input type='text' name='second_name' id='id-second_name' class='class-input' required=''>
+            </div>
+            <div>
+                <label for='id-username' class='id-label'>Usuário</label>
+                <input type='text' name='username' id='id-username' class='class-input' required=''>
+            </div>
+            <div>
+                <label for='id-password' class='id-label'>Senha</label>
+                <input type='text' name='password' id='id-password' class='class-input' required=''>
+            </div>
+            <div>
+                <label for='id-email' class='id-label'>E-mail</label>
+                <input type='text' name='email' id='id-email' class='class-input' required=''>
+            </div>
+            <button type='submit'>Cadastrar</button>
+        </form>
+    </div>
+{%endblock%}

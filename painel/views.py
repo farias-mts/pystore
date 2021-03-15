@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login as loginProcess, logout as logoutProcess
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect  
+from django.contrib.auth.models import User
 
 from . import forms
 from . import models
@@ -41,7 +42,6 @@ def logout(request):
 def newProduct(request):
     formProduct = forms.formProduct()
     if request.method=='POST':
-            print(request.POST['name'])
             primary_image = request.POST['primary_image']
             second_image = request.POST['second_image']
             third_image = request.POST['third_image']
@@ -68,6 +68,52 @@ def newProduct(request):
         'formProduct':formProduct,
     }
     return render(request, 'login/products.html', context)
+
+@csrf_protect
+@login_required(login_url='login/')
+def newCategory(request):
+    category = models.Category.objects.all()
+    if request.method == 'POST':
+        name = request.POST['name']
+        new_category = models.Category(
+            name=name
+        )
+        new_category.save()
+        print('Categoria Criada')
+    context = {
+        'category':category
+    }
+    return render(request, 'login/category.html', context)
+
+@csrf_protect
+@login_required(login_url='login/')
+def newBrand(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        new_brand = models.Brand(
+            name=name
+        )
+        new_brand.save()
+        print('Fabricante criado')
+    return render(request, 'login/brand.html')
+
+def newUser(request):
+    if request.method == 'POST':
+        first_name = request.POST['first_name']
+        second_name = request.POST['second_name']
+        username = request.POST['username']
+        password = request.POST['password']
+        email = request.POST['email']
+        user = User.objects.create_user(
+            username,
+            email,
+            password
+        )
+        user.first_name = first_name
+        user.last_name = second_name
+        user.save()
+
+    return render(request, 'login/user.html')
 
 def teste(request):
     return render(request, 'teste.html')

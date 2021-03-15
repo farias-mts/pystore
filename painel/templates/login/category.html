@@ -1,0 +1,24 @@
+{%extends 'panel.html'%}
+
+{%load static%}
+
+{%block title%}Categoria | pyStore{%endblock%}
+
+{%block static%}
+    <link rel='stylesheet' href='{%static "css/styleForms.css"%}'>
+{%endblock%}
+
+
+{%block variable-title%}Nova Categoria{%endblock%}
+
+{%block variable-contents%}
+    <div class='card-category'>
+        <form method='POST' action=''>{%csrf_token%}
+            <div>
+                <label for='id-name' id='id-label'>Categoria</label>
+                <input type='text' name='name' id='id-name' required=''>
+            </div>
+            <button type='submit'>Cadastrar</button>
+        </form>
+    </div>
+{%endblock%}
