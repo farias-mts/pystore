@@ -1,0 +1,22 @@
+{%load static%}
+{%if products.count > 0%}
+    {%for product in products%}
+        <div class='result-product'>
+            <div class='product-column-1 column'>
+                <a href=''><img src='{{product.primary_image.url}}'></a>
+            </div>
+            <div class='product-column-2 column'>
+                <a href=''>
+                    <p id=product-title>{{product.name}}</p>
+                    <p id='product-price'>R${{product.price}}</p>
+                </a>
+            </div>
+            <div class='product-column-3 column'>
+                <img src='{%static "images/icons/updated.png"%}'>
+                <img src='{%static "images/icons/trash.png"%}'>
+            </div>
+        </div>
+    {%endfor%}
+{%else%}
+        <p>Nenhum produto encontrado</p>
+{%endif%}

@@ -4,9 +4,35 @@
 {%block title%}pyStore | Novo Produto{%endblock%}
 
 {%block static%}
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel='stylesheet' href='{%static "css/styleProducts.css"%}'>
     <script src='{%static "js/showImage.js"%}'></script>
     <script src='{%static "js/radio.js"%}'></script>
+    <script>
+        $(document).ready(function(){
+            $('#id_search').keyup(function(){
+                if($(this).val() == ''){
+                    $('#box-results').css('visibility', 'hidden');
+                }else{
+                    $.ajax({
+                        type:'POST',
+                        url:'{%url "search"%}',
+                        data:{
+                            'search_text':$('#id_search').val(),
+                            'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
+                        },
+                        success:function(data, textStatus, jqXHR){
+                                    $('#box-results').html(data)
+                        },
+                        dataType:'html'
+                    })
+                    $('#box-results').css('visibility', 'visible');
+                }
+            });
+        });
+        
+    </script>
+
 {%endblock%}
 
 
@@ -80,6 +106,15 @@
             </div>
             <button type='submit'>Cadastrar</button>
         </form>
+        <div id='card-search'>
+            <div id='search-products'>
+                {%csrf_token%}
+                <input type='search' name='search' id='id_search' value='' placeholder='Nome do produto'>
+                <i><img src='{%static "images/icons/transparency.png"%}'></i>
+            </div>
+            <div id='box-results'>
+            </div>
+        </div>
     </div>
 {%endblock%}
 

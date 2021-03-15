@@ -41,6 +41,7 @@ def logout(request):
 @login_required(login_url='login/')
 def newProduct(request):
     formProduct = forms.formProduct()
+    formSearch = forms.formSearch()
     if request.method=='POST':
             primary_image = request.POST['primary_image']
             second_image = request.POST['second_image']
@@ -58,7 +59,7 @@ def newProduct(request):
                 brand=brand,
                 price=price,
                 amount=amount,
-                primary_image=primary_image,
+                primary_image= primary_image,
                 second_image=second_image,
                 third_image=third_image
             )
@@ -66,8 +67,23 @@ def newProduct(request):
             print('Produto criado')
     context = {
         'formProduct':formProduct,
+        'formSearch':formSearch
     }
     return render(request, 'login/products.html', context)
+
+@csrf_protect
+@login_required(login_url='login/')
+def getProducts(request):
+    if request.method == 'POST':
+        query = request.POST['search_text']
+    else:
+        query = ''
+    products = models.Product.objects.filter(name__contains=query)
+    context = {
+        'products':products,
+    }
+    
+    return render(request, 'login/resultProducts.html', context)
 
 @csrf_protect
 @login_required(login_url='login/')
@@ -116,4 +132,9 @@ def newUser(request):
     return render(request, 'login/user.html')
 
 def teste(request):
-    return render(request, 'teste.html')
+    query = 'C'
+    t = models.Category.objects.filter(name__contains=query)
+    print(t)
+    '''for p in t:
+        if query in p.name:
+            print(p)'''

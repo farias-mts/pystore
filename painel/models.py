@@ -27,16 +27,15 @@ class Brand(models.Model):
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=244, blank=False)
-    slug = models.SlugField(unique=True, blank=True)
     description = models.TextField(blank=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=False)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, blank=False, null=False)
     price = models.DecimalField(decimal_places=2, max_digits=99999, blank=False, null=False)
     amount = models.IntegerField(blank=False)
     availability = models.BooleanField(default=True)
-    primary_image = models.ImageField(upload_to='products/%Y/%m/%d', blank=False, null=True)
-    second_image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True, null=True)
-    third_image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True, null=True)
+    primary_image = models.ImageField(blank=False, null=True)
+    second_image = models.ImageField(blank=True, null=True)
+    third_image = models.ImageField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
