@@ -87,6 +87,12 @@ def getProducts(request):
 
 @csrf_protect
 @login_required(login_url='login/')
+def deleteProduct(request, id):
+    models.Product.objects.filter(id=id).delete()
+    return redirect('/painel/products')
+
+@csrf_protect
+@login_required(login_url='login/')
 def newCategory(request):
     category = models.Category.objects.all()
     if request.method == 'POST':

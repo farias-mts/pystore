@@ -13,7 +13,7 @@
             </div>
             <div class='product-column-3 column'>
                 <img src='{%static "images/icons/updated.png"%}'>
-                <img src='{%static "images/icons/trash.png"%}'>
+                <a href='{{product.id}}/delete'><img src='{%static "images/icons/trash.png"%}'></a>
             </div>
         </div>
     {%endfor%}
