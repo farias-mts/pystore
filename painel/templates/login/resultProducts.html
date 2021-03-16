@@ -3,10 +3,10 @@
     {%for product in products%}
         <div class='result-product'>
             <div class='product-column-1 column'>
-                <a href=''><img src='{{product.primary_image.url}}'></a>
+                <a href='{{product.id}}'><img src='{{product.primary_image.url}}'></a>
             </div>
             <div class='product-column-2 column'>
-                <a href=''>
+                <a href='{{product.id}}'>
                     <p id=product-title>{{product.name}}</p>
                     <p id='product-price'>R${{product.price}}</p>
                 </a>

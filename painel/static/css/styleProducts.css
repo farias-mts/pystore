@@ -100,11 +100,11 @@ form{
 }
 
 #radio2:checked ~ .first{
-    margin-left:-20%;
+    margin-left:-20.5%;
 }
 
 #radio3:checked ~ .first{
-    margin-left:-40%;
+    margin-left:-41.05%;
 }
 
 

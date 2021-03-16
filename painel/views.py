@@ -82,8 +82,16 @@ def getProducts(request):
     context = {
         'products':products,
     }
-    
     return render(request, 'login/resultProducts.html', context)
+
+@csrf_protect
+@login_required(login_url='login/')
+def editProduct(request, id):
+    products = models.Product.objects.filter(id=id)
+    context = {
+        'products':products
+    }
+    return render(request, 'login/product.html', context)
 
 @csrf_protect
 @login_required(login_url='login/')
