@@ -124,6 +124,24 @@ def newCategory(request):
     }
     return render(request, 'login/category.html', context)
 
+def queryCategory(request):
+    if request.method == 'POST':
+        query = request.POST['query']
+    else:
+        query = ''
+    obj = models.Category.objects.filter(name__contains=query)
+    url_name = 'deleteCategory'
+    context = {
+        'query':obj,
+        'urlName':url_name
+    }
+    return render(request, 'pieces/resultQuery.html', context)
+
+def deleteCategory(request, id):
+    models.Category.objects.get(id=id).delete()
+    return redirect('/painel/category')
+
+
 @csrf_protect
 @login_required(login_url='login/')
 def newBrand(request):

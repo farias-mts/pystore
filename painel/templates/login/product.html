@@ -16,6 +16,7 @@
         $(document).ready(function(){
             $('#id_search').keyup(function(){
                 if($(this).val() == ''){
+                    $('.product-column-3 img').css('transition', '0s');
                     $('#box-results').css('visibility', 'hidden');
                 }else{
                     $.ajax({
@@ -30,6 +31,7 @@
                         },
                         dataType:'html'
                     })
+                    $('.product-column-3 img').css('transition', '5s');
                     $('#box-results').css('visibility', 'visible');
                 }
             });
@@ -135,7 +137,6 @@
                 </div>
             </div>
         </div>
-
         <script>
             $('#id_category').val('{{category.id}}').change();
             $('#id_brand').val('{{brand.id}}').change();

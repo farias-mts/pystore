@@ -1,0 +1,108 @@
+#card-search{
+    position:relative;
+    top:0;
+    left:50%;
+    transform:translate(-50%, 0);
+    margin-top:15%;
+    width:-moz-max-content;
+    width:-webkit-max-content;
+    max-width:-moz-max-content;
+    max-width:-webkit-max-content;
+    height:-moz-max-content;
+    height:-webkit-max-content;
+}
+
+#search{
+    width:19.6875vw;
+    height:2.1875vw;
+    margin:0;
+}
+
+#search input{
+    position:relative;
+    width:100%;
+    height:100%;
+    background-color:#ebedee;
+    outline:none;
+    color:#FF5733;
+    border:none;
+    border-bottom:1px solid #333;
+    padding-left:1.0416666666666667vw;
+}
+
+#search img{
+    position:absolute;
+    width:1.5625vw;
+    height:1.5625vw;
+    margin-left:-10%;
+    margin-top:1.5%;
+    border-radius:35%;
+    background-color: #ced3df;
+}
+
+#box-results{
+    width:100%;
+    min-height:70px;
+    height:-moz-max-content;
+    height:-webkit-max-content;
+    max-height:300px;
+    background-color: #ced3df;
+    overflow:scroll;
+    visibility:hidden;
+}
+
+.result{
+    position:relative;
+    display:flex;
+    background-color:#ebedee;
+    width:80%;
+    max-width:80%;
+    height:40px;
+    top:0;
+    left:50%;
+    transform:translate(-50%, 0);
+    margin-top:2%;
+    margin-bottom:2%;
+    border:none;
+    border-radius:3%;
+
+}
+
+.result p{
+    width: 8.333333333333334vw;
+    height:-moz-max-content;
+    height:-webkit-max-content;
+    position:relative;
+    left:10%;
+    top:30%;
+    transform:translate(-10%, -30%);
+    font-family: 'Archivo Black', sans-serif;
+    font-size:20px;
+    color:#333;
+}
+
+.result div{
+    height:1.5625vw;
+    width:1.5625vw;
+    position:relative;
+    left:35%;
+    top:50%;
+    transform: translate(-35%, -50%);
+    background-color:#ced3df;
+    border-radius:35%;
+    transition:2s;
+    cursor:pointer;
+}
+
+.result img{
+    position:absolute;
+    width:1.0416666666666667vw;
+    height:1.0416666666666667vw;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%)
+}
+
+.result div:hover{
+    background-color:#333;
+}
