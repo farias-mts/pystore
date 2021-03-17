@@ -32,7 +32,6 @@
         });
         
     </script>
-
 {%endblock%}
 
 
@@ -40,7 +39,7 @@
 
 {%block variable-contents%}
     <div id='form-product'>
-        <form method='POST' action=''>{%csrf_token%}
+        <form method='POST' action='' enctype='multipart/form-data'>{%csrf_token%}
             <div id='forms'>
                 <div id='view-slide'>
                     <div id='slide'>
@@ -48,21 +47,21 @@
                         <input id='radio2' type='radio' name='radio-btn' onclick='checkedRadio("2")'>
                         <input id='radio3' type='radio' name='radio-btn' onclick='checkedRadio("3")'>
                         <div class='slide-photo first'>
-                            <img id='preview-first' class='preview-photo'>
-                            <label for='id_first_image'>
+                            <img id='preview-primary' class='preview-photo' type='file' accept='image/*'>
+                            <label for='id_primary_image'>
                                 <img src='{%static "images/icons/galeria.png"%}' class='select-image'>
                             </label>
-                            <input id='id_first_image' type='file' name='primary_image' accept='image/*' required='' onchange='previewImage("first")'>
+                            <input id='id_primary_image' type='file' name='primary_image' accept='image/*' required='' onchange='previewImage("primary")'>
                         </div>
                         <div class='slide-photo'>
-                            <img id='preview-second' class='preview-photo'>
+                            <img id='preview-second' class='preview-photo' type='file' accept='image/*'>
                             <label for='id_second_image'>
                                 <img src='{%static "images/icons/galeria.png"%}' class='select-image'>
                             </label>
                             <input id='id_second_image' type='file' name='second_image' accept='image/*' onchange='previewImage("second")'>
                         </div>
                         <div class='slide-photo'>
-                            <img id='preview-third' class='preview-photo'>
+                            <img id='preview-third' class='preview-photo' type='file' accept='image/*'>
                             <label for='id_third_image'>
                                 <img src='{%static "images/icons/galeria.png"%}' class='select-image'>
                             </label>
@@ -82,7 +81,7 @@
                     </div>
                     <div>
                         <label for='id_description'>Descrição</label>
-                        <textarea type='text' id='id_description' name='description' class='change-input' rows='4' cols='50'></textarea>
+                        <textarea id='id_description' name='description' class='change-input' rows='4' cols='50'></textarea>
                     </div>
                     <div>
                         <label for='id_category'>Categoria</label>
@@ -116,5 +115,7 @@
             </div>
         </div>
     </div>
+    
+    
 {%endblock%}
 

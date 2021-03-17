@@ -16,8 +16,8 @@ body{
 
 
 .image-exit{
-    width:30px;
-    height:30px;
+    width:2.1961932650073206vw;
+    height:2.1961932650073206vw;
     position:relative;
     top:1%;
     left:2%;
@@ -49,9 +49,9 @@ body{
 
 #hello p{
     display:inline;
-    word-spacing:1.5px;
+    word-spacing:0.10980966325036604vw;
     font-family:'Patua One', cursive;
-    font-size:8vh;
+    font-size:3.830161054172767vw;
 }
 
 #name-user{
@@ -63,9 +63,9 @@ body{
 
 #name-user p{
     font-family:'Source Sans Pro', sans-serif;
-    font-size:2.3vh;
+    font-size:1.1011713030746704vw;
     font-weight:bold;
-    letter-spacing:0.4vh;
+    letter-spacing:0.19150805270863838vw;
     color:#FF5733;
 }
 
@@ -129,7 +129,7 @@ body{
 
 #page-title{
     font-family:'Archivo Black', sans-serif;
-    font-size:32px;
+    font-size:2.342606149341142vw;
     color:#FF5733;
 }
 

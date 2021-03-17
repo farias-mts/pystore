@@ -12,15 +12,41 @@
     <link rel='stylesheet' href='{%static "css/styleProducts.css"%}'>
     <script src='{%static "js/showImage.js"%}'></script>
     <script src='{%static "js/radio.js"%}'></script>
+    <script>
+        $(document).ready(function(){
+            $('#id_search').keyup(function(){
+                if($(this).val() == ''){
+                    $('#box-results').css('visibility', 'hidden');
+                }else{
+                    $.ajax({
+                        type:'POST',
+                        url:'{%url "search"%}',
+                        data:{
+                            'search_text':$('#id_search').val(),
+                            'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
+                        },
+                        success:function(data, textStatus, jqXHR){
+                                    $('#box-results').html(data)
+                        },
+                        dataType:'html'
+                    })
+                    $('#box-results').css('visibility', 'visible');
+                }
+            });
+        });
+    </script>
 {%endblock%}
 
-
-{%block variable-title%}Produto{%endblock%}
+{%block variable-title%}
+    {%for prd in products%}
+        {{prd.name}}
+    {%endfor%}
+{%endblock%}
 
 {%block variable-contents%}
     {%for prd in products%} 
         <div id='form-product'>
-            <form method='POST' action=''>{%csrf_token%}
+            <form method='POST' action='{%url "updateProduct" prd.id%}' enctype='multipart/form-data'>{%csrf_token%}
                 <div id='forms'>
                     <div id='view-slide'>
                         <div id='slide'>
@@ -29,20 +55,20 @@
                             <input id='radio3' type='radio' name='radio-btn' onclick='checkedRadio("3")'>
                             <div class='slide-photo first'>
                                 {%if prd.primary_image.url != None%}
-                                    <img id='preview-first' class='preview-photo' src='{{prd.primary_image.url}}'>
+                                    <img id='preview-primary' class='preview-photo' src='{{prd.primary_image.url}}' type='file' accept='image/*'>
                                 {%else%}
-                                    <img id='preview-first' class='preview-photo'>
+                                    <img id='preview-primary' class='preview-photo' type='file' accept='image/*'>
                                 {%endif%}
-                                    <label for='id_first_image'>
+                                    <label for='id_primary_image'>
                                     <img src='{%static "images/icons/galeria.png"%}' class='select-image'>
                                 </label>
-                                <input id='id_first_image' type='file' name='primary_image' accept='image/*' required='' onchange='previewImage("first")'>
+                                <input id='id_primary_image' type='file' name='primary_image' accept='image/*' onchange='previewImage("primary")'>
                             </div>
                             <div class='slide-photo'>
                                 {%if prd.second_image.url != None%}
-                                    <img id='preview-second' class='preview-photo' src='{{prd.second_image.url}}'>
+                                    <img id='preview-second' class='preview-photo' src='{{prd.second_image.url}}' type='file' accept='image/*'>
                                 {%else%}
-                                    <img id='preview-first' class='preview-photo'>
+                                    <img id='preview-second' class='preview-photo' type='file' accept='image/*'>
                                 {%endif%}
                                 <label for='id_second_image'>
                                     <img src='{%static "images/icons/galeria.png"%}' class='select-image'>
@@ -51,9 +77,9 @@
                             </div>
                             <div class='slide-photo'>
                                 {%if prd.third_image.url != None%}
-                                    <img id='preview-third' class='preview-photo' src='{{prd.third_image.url}}'>
+                                    <img id='preview-third' class='preview-photo' src='{{prd.third_image.url}}' type='file' accept='image/*'>
                                 {%else%}
-                                    <img id='preview-first' class='preview-photo'>
+                                    <img id='preview-third' class='preview-photo' type='file' accept='image/*'>
                                 {%endif%}
                                 <label for='id_third_image'>
                                     <img src='{%static "images/icons/galeria.png"%}' class='select-image'>
@@ -78,11 +104,12 @@
                         </div>
                         <div>
                             <label for='id_category'>Categoria</label>
-                            <input type='text' id='id-category' name='category' class='change-input' value='{{prd.category}}'>
+                            {{form.category}}
                         </div>
                         <div>
                             <label for='id_brand'>Fabricante</label>
-                            <input type='text' id='id-brand' name='brand' class='change-input' value='{{prd.brand}}'>
+                            {{form.brand}}
+                            
                         </div>
                         <div>
                             <label for='id_price'>Preço</label>
@@ -94,8 +121,24 @@
                         </div>
                     </div>
                 </div>
+                <a id='back-screen' href='/painel/products/'><img id='back-image' src='{%static "images/icons/back.png"%}' class='photo-link'></a>
+                <a id='delete' href='/painel/products/{{prd.id}}/delete'><img id='delete-image' src='{%static "images/icons/trash.png"%}' class='photo-link'></a>
                 <button type='submit'>Alterar</button>
             </form>
+            <div id='card-search'>
+                <div id='search-products'>
+                    {%csrf_token%}
+                    <input type='search' name='search' id='id_search' value='' placeholder='Nome do produto'>
+                    <i><img src='{%static "images/icons/transparency.png"%}'></i>
+                </div>
+                <div id='box-results'>
+                </div>
+            </div>
         </div>
+
+        <script>
+            $('#id_category').val('{{category.id}}').change();
+            $('#id_brand').val('{{brand.id}}').change();
+        </script>
     {%endfor%}
 {%endblock%}

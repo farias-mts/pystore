@@ -125,7 +125,7 @@ form{
 
 #view-input label{
     font-family:'Source Sans Pro', sans-serif;
-    font-size:20px;
+    font-size:1.4641288433382138vw;
     font-weight:bold;
     color:#333;
     letter-spacing:0.2604166666666667vw;
@@ -138,10 +138,10 @@ form{
 
 #view-input input, textarea, select{
     background-color:#ebedee;
-    padding:8px;
+    padding:0.5856515373352855vw;
     border:none;
     color:#FF5733;
-    border-bottom:1px solid #333;
+    border-bottom:0.07320644216691069vw solid #333;
     font-family:Arial;
     vertical-align:middle;
     outline:none;
@@ -187,7 +187,7 @@ button:hover{
 }
 
 #card-search{
-    margin-top:25px;
+    margin-top:1.8301610541727673vw;
     width:100%;
 }
 
@@ -204,7 +204,7 @@ button:hover{
 
 #card-search input{
     background-color:#ebedee;
-    padding:8px;
+    padding:0.5856515373352855vw;
     border:none;
     outline:none;
     border-bottom: 1px solid #333;
@@ -213,20 +213,20 @@ button:hover{
 }
 
 #search-products img{
-    width:30px;
+    width:2.1961932650073206vw;
     height:100%;
     position:absolute;
     margin-top:0px;
-    margin-left:-30px;
+    margin-left:-2.1961932650073206vw;
     background-color:#ced3df;
     border:none;
-    border-bottom: 1px solid #333;
+    border-bottom: 0.07320644216691069vw solid #333;
     cursor:pointer;
 }
 
 #box-results{
     width:21.961932650073205vw;
-    height:150px;
+    height:10.980966325036603vw;
     position:relative;
     top:0;
     left:5%;
@@ -245,45 +245,45 @@ button:hover{
     background-color:#ebedee;
     display:flex;
     width:95%;
-    height:80px;
-    margin-top:5px;
-    margin-left:10px;
+    height:5.856515373352855vw;
+    margin-top:0.36603221083455345vw;
+    margin-left: 0.7320644216691069vw;
     margin-bottom:0px;
     border-radius:10%;
 }
 
 .product-column-1{
-    margin-left:5px;
+    margin-left:0.36603221083455345vw;
 }
 
 .product-column-2 #product-title{
-    font-size:18px;
+    font-size:1.3177159590043923vw;
     font-family:'Archivo Black', sans-serif;
     color:#333;
 }
 
 .product-column-2 #product-price{
-    font-size:14px;
+    font-size:1.0248901903367496vw;
     font-family:'Source Sans Pro', sans-serif;
     color:#FF5733;
 }
 
 .product-column-2{
-    margin-left:10px;
+    margin-left:0.7320644216691069vw;
     width:12.079062957540264vw;
 }
 
 .product-column-1 img{
-    width:60px;
-    height:60px;
+    width:4.392386530014641vw;
+    height:4.392386530014641vw;
     border-radius:15%;
 }
 
 .product-column-3 img{
-    width:20px;
-    height:20px;
+    width:1.4641288433382138vw;
+    height:1.4641288433382138vw;
     display:block;
-    margin-bottom:15px;
+    margin-bottom:1.0980966325036603vw;
     cursor:pointer;
     transition:5s;
 }
@@ -295,4 +295,21 @@ button:hover{
 
 .result-product a{
     text-decoration:none;
+}
+
+.photo-link{
+    width:30px;
+    height:30px;
+}
+
+#back-screen{
+    position:absolute;
+    top:10px;
+    left:-40px;
+}
+
+#delete{
+    position:absolute;
+    top:60px;
+    left:-40px;
 }
