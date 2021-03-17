@@ -13,7 +13,7 @@
             }else{
                 $.ajax({
                     type:'POST',
-                    url:'{%url "searchCategory"%}',
+                    url:'{%url urlQuery%}',
                     data:{
                         'query':$('#id-search').val(),
                         'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
@@ -28,4 +28,5 @@
             $('#box-results').css('visibility', 'visible');
         })
     </script>
+    <link rel='stylesheet' href='{%static "css/cardSearch.css"%}'>
 </div>

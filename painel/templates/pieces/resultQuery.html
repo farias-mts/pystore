@@ -3,7 +3,7 @@
     <div class='result'>
         <p>{{object.name}}</p>
         <div>
-            <a href='{%url urlName object.id%}'><img src='{%static "images/icons/trash.png"%}'></a>
+            <a href='{%url urlDelete object.id%}'><img src='{%static "images/icons/trash.png"%}'></a>
         </div>
     </div>
 {%endfor%}

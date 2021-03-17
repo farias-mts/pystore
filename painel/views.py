@@ -111,6 +111,7 @@ def deleteProduct(request, id):
 @csrf_protect
 @login_required(login_url='login/')
 def newCategory(request):
+    url_query = 'searchCategory'
     category = models.Category.objects.all()
     if request.method == 'POST':
         name = request.POST['name']
@@ -120,7 +121,8 @@ def newCategory(request):
         new_category.save()
         print('Categoria Criada')
     context = {
-        'category':category
+        'category':category,
+        'urlQuery':url_query,
     }
     return render(request, 'login/category.html', context)
 
@@ -130,13 +132,15 @@ def queryCategory(request):
     else:
         query = ''
     obj = models.Category.objects.filter(name__contains=query)
-    url_name = 'deleteCategory'
+    url_delete = 'deleteCategory'
     context = {
         'query':obj,
-        'urlName':url_name
+        'urlDelete':url_delete
     }
     return render(request, 'pieces/resultQuery.html', context)
 
+@csrf_protect
+@login_required(login_url='login/')
 def deleteCategory(request, id):
     models.Category.objects.get(id=id).delete()
     return redirect('/painel/category')
@@ -145,6 +149,7 @@ def deleteCategory(request, id):
 @csrf_protect
 @login_required(login_url='login/')
 def newBrand(request):
+    url_query = 'searchBrand'
     if request.method == 'POST':
         name = request.POST['name']
         new_brand = models.Brand(
@@ -152,7 +157,27 @@ def newBrand(request):
         )
         new_brand.save()
         print('Fabricante criado')
-    return render(request, 'login/brand.html')
+    context = {
+        'urlQuery':url_query
+    }
+    return render(request, 'login/brand.html', context)
+
+def queryBrand(request):
+    if request.method == 'POST':
+        query = request.POST['query']
+    else:
+        query = ''
+    obj = models.Brand.objects.filter(name__contains=query)
+    url_delete = 'deleteBrand'
+    context = {
+        'query':obj,
+        'urlDelete':url_delete
+    }
+    return render(request, 'pieces/resultQuery.html', context)
+
+def deleteBrand(request, id):
+    models.Brand.objects.get(id=id).delete()
+    return redirect('/painel/brand')
 
 def newUser(request):
     if request.method == 'POST':
