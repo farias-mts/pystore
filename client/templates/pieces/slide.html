@@ -1,0 +1,20 @@
+{%load static%}
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<link rel='stylesheet' href='{%static "css/styleBase.css"%}'>
+<link rel='stylesheet' href='{%static "css/styleSlide.css"%}'>
+<div id='slide'>
+    <div id='slide-content'>
+        <input type='radio' id='btn-radio-1' name='radio-btn'>
+        <input type='radio' id='btn-radio-2' name='radio-btn'>
+        <input type='radio' id='btn-radio-3' name='radio-btn'>
+        <div class='slide-photo first-slide'>
+            <img src='{%static "images/prop1.jpg"%}'>
+        </div>
+        <div class='slide-photo'>
+            <img src='{%static "images/prop2.jpeg"%}'>
+        </div>
+        <div class='slide-photo'>
+            <img src='{%static "images/prop1.jpg"%}'>
+        </div>
+    </div>
+</div>

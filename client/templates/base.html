@@ -8,40 +8,29 @@
     <title>{%block title%}PyStore{%endblock%}</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
     <link rel='stylesheet' href='{%static "css/styleBase.css"%}'>
-    {%block statics%}{%endblock%}
+    <link rel='stylesheet' href='{%static "css/styleNavbar.css"%}'>
+    {%block statics%}
+        <link rel='stylesheet' href='{%static "css/styleIndex.css"%}'>
+    {%endblock%}
 </head>
 <body>
-    <div id='navbar'>
-        <div id='navbar-top'>
-            <ul>
-                <li><a href=''>Sobre</a></li>
-                <li><a href=''>Ajuda</a></li>
-                <li><a href=''>Trocas e Devoluções</a></li>
-                <li><a href=''>Status Pedido</a></li>
-            </ul>
-        </div>
-        <div id='navbar-bottom'>
-            <div id='navbar-menu'>
-                <ul>
-                    <li><a href=''>Celular</a></li>
-                    <li><a href=''>Notebook</a></li>
-                    <li><a href=''>Televisão</a></li>
-                    <li><a href=''>Acessórios</a></li>
-                </ul>
-            </div>
-            <div id='navbar-section'>
-                <ul>
-                    <li><a href=''><img src='{%static "images/icons/user.png"%}'></a></li>
-                    <li><a href=''><img src='{%static "images/icons/carrinho.png"%}'></a></li>
-                </ul>
-            </div>
-        </div>
-        <a id='logo'><img src='{%static "images/ecommerce-logo.png"%}'></a>
-    </div>
+    {%include "pieces/navbar.html"%}
     <section>
-        {%block contents%}{%endblock%}
+        {%block contents%}
+            <div id='banner'>
+                <video loop autoplay playsinline muted>
+                    <source src='{%static "video/iphoneX.mp4"%}'  type='video/mp4'>
+                </video>
+                <div id='buy-button'>
+                    <button>
+                        <span>COMPRAR AGORA</span>
+                    </button>
+                </div>
+            </div>
+        {%endblock%}
     </section>
 </body>
 </html>

@@ -1,0 +1,26 @@
+{%load static%}
+<div id='navbar'>
+    <div id='navbar-top'>
+        <div id='navbar-top-1'>
+            <div class='help-me'>
+                <a href=''>Sobre</a>
+            </div>
+            <div class='help-me'>
+                <a href=''>Ajuda</a>
+            </div>
+            <div class='help-me'>
+                <a href=''>Status Pedido</a>
+            </div>
+        </div>
+    </div>
+    <div id='navbar-bottom'>
+        <div id='menu-options'>
+            {%for category in categories%}
+                <div class='options'>
+                    <a href=''>{{category.name}}</a>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+    <a id='logo'  href='/'><img src='{%static "images/logo.png"%}'></a>
+</div>

@@ -1,0 +1,50 @@
+#banner{
+    width:100%;
+    height:800px;
+}
+
+#banner video{
+    width:100%;
+    height:100%;
+}
+
+#buy-button{
+    width:11.302083333333334vw;
+    height:2.6041666666666665vw;
+    background-color:#333;
+    cursor:pointer;
+    border-radius:5%;
+    position:absolute;
+    top:70%;
+    left:20%;
+}
+
+#buy-button button{
+    position:relative;
+    width:80%;
+    height:100%;
+    left:50%;
+    top:0;
+    transform:translate(-50%, 0);
+    background-color:#333;
+    border:none;
+    outline:none;
+    cursor:pointer;
+}
+
+#buy-button button:hover span{
+    color:#333;
+}
+
+#buy-button button:hover{
+    background-color:#ebedee;
+}
+
+#buy-button span{
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color:#fff;
+}
