@@ -1,0 +1,100 @@
+{%extends 'base.html'%}
+
+{%load static%}
+
+{%block title%}Index | pyStore{%endblock%}
+
+{%block statics%}
+    <link rel='stylesheet' href='{%static "css/styleIndex.css"%}'>
+{%endblock%}
+
+{%block contents%}
+            <div id='banner'>
+                <video loop autoplay playsinline muted>
+                    <source src='{%static "video/iphoneX.mp4"%}'  type='video/mp4'>
+                </video>
+                <div id='buy-button'>
+                    <button id='btn-iphonex'>
+                        <span>COMPRAR AGORA</span>
+                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31.49 31.49" style="enable-background:new 0 0 31.49 31.49;" xml:space="preserve">
+                            <path id='arrow' d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111  C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587  c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                        </svg>
+                    </button>
+
+                </div>
+            </div>
+            <section id='section-highlights'>
+                <div class='section-card'>
+                    <div id='header-highlights' class='headers-card-title'>
+                        <h2>Destaques</h2>
+                    </div>
+                    <div class='card-wrapper'>
+                        <div class='card-highlights'>
+                            <a href=''><span class='card-title'>Iphone</span></a>
+                            <img src='http://minutoligado.com.br/wp-content/uploads/2012/07/Apple-Logo.jpg'>
+                        </div>
+                        <div class='card-highlights'>
+                            <a href=''><span class='card-title'>Xiaomi</span></a>
+                            <img src='https://mobilebit.b-cdn.net/wp-content/uploads/2020/01/atualizacao-miui-launcher.jpg'>
+                        </div>
+                        <div class='card-highlights'>
+                            <a href=''><span class='card-title'>Samsung</span></a>
+                            <img src='https://i.pinimg.com/originals/dc/36/c1/dc36c1d02dfe2ec192b7ec6d2289cb2d.png'>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id='section-news'>
+                <div class='section-card'>
+                    <div class='headers-card-title'>
+                        <h2>Novidades</h2>
+                    </div>
+                    <div class='card-wrapper card-wrapper-news'>
+                        {%for product in products%}
+                            <a href=''>
+                                <div class='card-products'>
+                                    <div class='product-image'>
+                                        <img src='{{product.primary_image.url}}'>
+                                    </div>
+                                    <div class='product-label'>
+                                        <span>{{product.name}}</span>
+                                    </div>
+                                    <div class='product-price'>
+                                        <span>R${{product.price}}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        {%endfor%}
+                    </div>
+                </div>
+            {%endblock%}

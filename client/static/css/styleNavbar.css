@@ -111,4 +111,40 @@
 }
 
 
-
+@media(max-width:480px){
+    #navbar-top{
+        height:35px;
+    }
+    .help-me{
+        height:35px;
+        margin-right:10px;
+        margin-left:10px;
+        padding:10px;
+    }
+    .help-me a{
+        font-size:12px;
+    }
+    #menu-options{
+        height:-moz-max-content;
+        height:-webkit-max-content;
+        display:inline-block;
+        width:100%;
+    }
+    #logo img{
+        display:none;
+    }
+    .options{
+        position:relative;
+        margin-right:0;
+        margin-left:0;
+        padding:10px;
+        width:-moz-max-content;
+        width:-webkit-max-content;
+        left:50%;
+        top:10%;
+        transform:translate(-50%, 0);
+    }
+    .options a{
+        font-size:16px;
+    }
+}

@@ -12,25 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;display=swap" rel="stylesheet">
     <link rel='stylesheet' href='{%static "css/styleBase.css"%}'>
     <link rel='stylesheet' href='{%static "css/styleNavbar.css"%}'>
-    {%block statics%}
-        <link rel='stylesheet' href='{%static "css/styleIndex.css"%}'>
-    {%endblock%}
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&amp;display=swap" rel="stylesheet">
+    {%block statics%}{%endblock%}
 </head>
 <body>
     {%include "pieces/navbar.html"%}
-    <section>
-        {%block contents%}
-            <div id='banner'>
-                <video loop autoplay playsinline muted>
-                    <source src='{%static "video/iphoneX.mp4"%}'  type='video/mp4'>
-                </video>
-                <div id='buy-button'>
-                    <button>
-                        <span>COMPRAR AGORA</span>
-                    </button>
-                </div>
-            </div>
-        {%endblock%}
-    </section>
+    <div>
+        {%block contents%}{%endblock%}
+    </div>
 </body>
 </html>
