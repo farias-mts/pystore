@@ -1,0 +1,29 @@
+{%load static%}
+<div class='rows'>
+    {%for product in products%}
+        <a href=''>
+            <div class='card'>
+                <div class='card-products'>
+                    <div class='products-photos'>
+                        <img src='{{product.primary_image.url}}'>
+                    </div>
+                    <div class='product-contents'>
+                        <div>
+                            <span class='name-product'>{{product.name}}</span>
+                        </div>
+                        <div>
+                            <label class='price-product'>R${{product.price}}</label>
+                        </div>
+                        <div>
+                            <span class='brand-product'>{{product.brand}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {%if forloop.counter|divisibleby:4%}
+    </div>
+    <div class='rows'>
+        {%endif%}
+    {% endfor %}
+</div>

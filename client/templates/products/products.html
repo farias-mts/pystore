@@ -1,0 +1,122 @@
+{%extends "base.html"%}
+
+{%load static%}
+
+{%block title%}Celulares | pyStore{%endblock%}
+{%block statics%}
+    <link rel='stylesheet' href='{%static "css/styleShowProducts.css"%}'>
+    <link rel='stylesheet' href='{%static "css/styleCardProducts.css"%}'>
+    <script>
+        $.ajax({
+            type:'GET',
+            url:'{%url "getProducts"%}',
+            data: {
+                'brand':'',
+                'minPrice':'',
+                'maxPrice':'',
+                'category':JSON.stringify($('#category-filter').attr('data'))
+            },
+            success:function(data, textStatus, jqXHR){
+                $('#card-products').html(data);
+            },
+            dataType:'html'
+        })
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.activate-input').change(function(){
+                var list_brand = [];
+                var all = document.getElementsByClassName('activate-input');
+                for(var i in all){
+                    if(all[i].checked == true){
+                        list_brand.push(all[i].name);
+                        console.log(all[i].name);
+                    };
+                };
+                if(list_brand.length == 0){
+                    for(var i in all){
+                        list_brand.push(all[i].name);
+                    };
+                };
+                $.ajax({
+                    type:'POST',
+                    url:'{%url "getProducts"%}',
+                    data: {
+                        'brand':JSON.stringify(list_brand),
+                        'minPrice':$('#minPrice').val(),
+                        'maxPrice':$('#maxPrice').val(),
+                        'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
+                    },
+                    success:function(data, textStatus, jqXHR){
+                        $('#card-products').html(data);
+                    },
+                    dataType:'html'
+                });
+            });
+            $('.input-price').keyup(function(){
+                var list_brand = [];
+                var all = document.getElementsByClassName('activate-input');
+                for(var i in all){
+                    if(all[i].checked == true){
+                        list_brand.push(all[i].name);
+                    };
+                };
+                if(list_brand.length == 0){
+                    for(var i in all){
+                        list_brand.push(all[i].name);
+                    };
+                };
+                $.ajax({
+                    type:'POST',
+                    url:'{%url "getProducts"%}',
+                    data: {
+                        'brand':JSON.stringify(list_brand),
+                        'minPrice':$('#minPrice').val(),
+                        'maxPrice':$('#maxPrice').val(),
+                        'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
+                    },
+                    success:function(data, textStatus, jqXHR){
+                        $('#card-products').html(data);
+                    },
+                    dataType:'html'
+                });
+            })
+        });
+    </script>
+{%endblock%}
+
+{%block navbar%}
+
+{%endblock%}
+
+{%block contents%}
+    <div id='card-option'>
+        {%csrf_token%}
+       <div id='card-brand' class='cards'>
+           <div class='center-content'>
+                <label class='title-card'>Fabricantes</label>
+                {%for brand in brands%}
+                    <div class='option-brand'>
+                        <input type='checkbox' id='id-{{brand.name}}' name='{{brand.name}}' class='activate-input'>
+                        <label class='checkbox-name'>{{brand.name}}</label>
+                    </div>
+                {%endfor%}
+           </div>
+       </div>
+       <div id='card-price' class='cards'>
+           <div class='center-content'>
+                <label class='title-card'>Preço</label>
+                <div class='price-content'>
+                    <label>min </label>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                    <input type='number' min='{{minPrice}}' value='{{minPrice}}' id='minPrice' class='input-price'>
+                </div>
+                <div class='price-content'> 
+                    <label>max </label>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                    <input type='number' min='{{maxPrice}}' value='{{maxPrice}}' id='maxPrice' class='input-price'>
+                </div>
+           </div>
+       </div>
+    </div>
+    <div id='card-products'></div>
+    <input type='text' data='{{category}}' id='category-filter' value=''>
+{%endblock%}

@@ -103,11 +103,16 @@
     top:25%;
     left:0;
     transform:translate(0, -25%);
+    cursor:pointer;
 }
 
 .options:hover a{
     transition:1.5s;
     color:#FF5733;
+}
+
+.category-products-title{
+    cursor:pointer;
 }
 
 
