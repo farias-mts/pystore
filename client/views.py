@@ -67,6 +67,13 @@ def getProducts(request):
     }
     return render(request, 'products/cardProduct.html', context)
 
+def showProduct(request, id):
+    product = Product.objects.get(id=id)
+    context = {
+        'product':product
+    }
+    return render(request, 'products/showProduct.html', context)
+
 def teste(request):
     return render(request, 'pieces/slide.html')
 

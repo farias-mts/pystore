@@ -1,7 +1,7 @@
 {%load static%}
 <div class='rows'>
     {%for product in products%}
-        <a href=''>
+        <a href='{%url "showProduct" product.id%}'>
             <div class='card'>
                 <div class='card-products'>
                     <div class='products-photos'>
